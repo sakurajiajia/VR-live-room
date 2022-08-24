@@ -1,4 +1,4 @@
-# Netless App Template
+# vr room
 
 [Netless App 文档](https://github.com/netless-io/window-manager/blob/master/docs/develop-app.md)
 

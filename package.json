@@ -18,7 +18,9 @@
   },
   "dependencies": {
     "three": "^0.143.0",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue-pdf-embed": "^1.1.4",
+    "vue3-pdfjs": "^0.1.6"
   },
   "devDependencies": {
     "@netless/fastboard": "^0.3.3",

@@ -26,7 +26,7 @@ const storage = context.createStorage("counter", { count: 1 });
 const real_count = ref(storage.state.count);
 const tot = ref(0);
 const scaleFun=ref(``)
-const scaleFun1=ref(`transform:scale(1.1)`)
+const scaleFun1=ref(`transform:scale(1)`)
 const scaleFun2=ref(`transform:scale(0.8)`)
 const addcount=()=>{
   if(count.value<tot.value){

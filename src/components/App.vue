@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="div">
-      <button @click="count--">上一页</button>
-      <button @click="count++">下一页</button>
+      <button @click="redcount">上一页</button>
+      <button @click="addcount">下一页</button>
       {{tot}}页数
       <button style="" @click="scaleFun=scaleFun1">还原</button>
       <button @click="scaleFun=scaleFun2">缩小</button>
@@ -22,25 +22,36 @@ import { computed, inject, onMounted, ref, watchEffect } from "vue";
 const context = inject<AppContext>("context");
 if (!context) throw new Error("must call provide('context') before mount App");
 const source=ref("http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf")
-const storage = context.createStorage("counter", { count: 3 });
+const storage = context.createStorage("counter", { count: 1 });
 const real_count = ref(storage.state.count);
 const tot = ref(0);
 const scaleFun=ref(``)
 const scaleFun1=ref(`transform:scale(1.1)`)
 const scaleFun2=ref(`transform:scale(0.8)`)
+const addcount=()=>{
+  if(count.value<tot.value){
+    count.value++
+  }
+}
+const redcount=()=>{
+  if(count.value>1){
+    count.value--
+  }
+}
 const count = computed<number>({
   get: () => real_count.value,
   set: (count) => storage.setState({ count }),
 });
-// const zoom = computed<number>({
-//   get: () => real_count.value,
-//   set: (count) => storage.setState({ count }),
-// });
+const zoom = computed<number>({
+  get: () => real_count.value,
+  set: (count) => storage.setState({ count }),
+});
 onMounted(() => { 
  
    const loadingTask = createLoadingTask(source.value);
     loadingTask.promise.then((pdf) => {
        tot.value= pdf.numPages;
+       count.value=1
     });
 
   storage.addStateChangedListener(() => {

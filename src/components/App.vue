@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="div">
-      <button @click="redcount">上一页</button>
-      <button @click="addcount">下一页</button>
-      {{tot}}页数
-      <button style="" @click="scaleFun=scaleFun1">还原</button>
-      <button @click="scaleFun=scaleFun2">缩小</button>
+    <div class="div2">
+      共{{tot}}页
+     <div> <button @click="redcount">上一页</button></div> 
+      <div> <button @click="addcount">下一页</button></div> 
+      <div> <button style="" @click="scaleFun=scaleFun1">还原</button></div> 
+      <div> <button @click="scaleFun=scaleFun2">缩小</button></div> 
     </div>
     <vue-pdf-embed :source=source
       class="vue-pdf-embed"
@@ -25,9 +25,9 @@ const source=ref("http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerA
 const storage = context.createStorage("counter", { count: 1 });
 const real_count = ref(storage.state.count);
 const tot = ref(0);
-const scaleFun=ref(``)
-const scaleFun1=ref(`transform:scale(1)`)
-const scaleFun2=ref(`transform:scale(0.8)`)
+const scaleFun=ref(`transform:scale(2)`)
+const scaleFun1=ref(`transform:scale(2)`)
+const scaleFun2=ref(`transform:scale(1)`)
 const addcount=()=>{
   if(count.value<tot.value){
     count.value++
@@ -65,9 +65,9 @@ watchEffect(() => {
 });
 </script>
 <style scoped>
-.video-js {
+.div2 {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 10px;
+  top: 10px;
 }
 </style>

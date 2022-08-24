@@ -1,6 +1,6 @@
-# vr room1
-
-[Netless App 文档](https://github.com/netless-io/window-manager/blob/master/docs/develop-app.md)
+# vr-live-room
+基于three的vr room,可以播放全景视频。及辅助坐标，适用于一些在线宣传场景
+线上大会复盘,全景工厂游览等场景
 
 ## 快速开始
 
